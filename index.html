@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HackJPS 2024</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="heading">Ohm's Law, V = IR</div>
+    <div class="heading1">Simple Circuit</div>
+    <div class="cont">
+      <div id="cont_left">
+        <div id="circut">
+          <div id="ammeter"><div class="line" id="cur_value"></div></div>
+          <div id="voltmeter"><div class="line" id="vol_value"></div></div>
+
+          <div class="range-input">
+            <div id="vol_pop" onclick="remove()">Change the voltage</div>
+            <input type="range" min="0" max="30" value="0" step="10" />
+            <div class="value">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cont_right">
+        <canvas id="myChart"></canvas>
+        <div class="inputs">
+          <div>
+            <input
+              id="xValue"
+              type="number"
+              step="any"
+              placeholder="Enter X-Value"
+            />
+            <input
+              id="yValue"
+              type="number"
+              step="any"
+              placeholder="Enter Y-Value"
+            />
+          </div>
+          <div>
+            <button id="renderButton">Add DataPoint & Render</button>
+
+            <button id="removePointButton">Remove Point</button>
+          </div>
+
+          <button id="hint">Hint 1</button>
+        </div>
+      </div>
+    </div>
+    <img
+      src="https://media.discordapp.net/attachments/746426484876509255/1249413315306848306/Animation_-_1717953401086.gif?ex=66673653&is=6665e4d3&hm=7f3511098fbb5c29039e6b6f771b206b4c33e8c54ace1510a0161d5f5118f4ef&="
+      id="navigateArrow"
+      alt="Next Page"
+    />
+  </body>
+  <script>
+    document
+      .getElementById("navigateArrow")
+      .addEventListener("click", function () {
+        Swal.fire({
+          title: "Enter your resistance value",
+          input: "number",
+          inputAttributes: {
+            autocapitalize: "off",
+          },
+          showCancelButton: true,
+          confirmButtonText: "Submit",
+          showLoaderOnConfirm: true,
+          preConfirm: (inputValue) => {
+            if (inputValue == 10) {
+              window.location.href = "series.html";
+            } else {
+              Swal.showValidationMessage(
+                `Resistance Value is incorrect. Please try again.`
+              );
+            }
+          },
+          allowOutsideClick: () => !Swal.isLoading(),
+        });
+      });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script type="module" src="level1.js"></script>
+</html>

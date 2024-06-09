@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
+body{
+    display: flex;
+    margin:0px;
+    padding:0px;
+    height:100vh;
+    width:100vw;
+    flex-direction:column;
+    align-items: center;
+    background-color: #ffffff;
+    overflow-x: hidden;
+ 
+}
+.heading{
+    font-size:3rem;
+    font-family: "Mukta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 4rem;
+    padding: .5rem;
+    z-index: 100;
+    color: black;
+}
+.heading1{
+  font-size:1.5rem;
+  font-family: "Mukta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 2rem;
+  padding: .25rem;
+  z-index: 100;
+  color: black;
+}
+
+.cont{
+    height:calc(100vh - 5rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+#cont_right{
+  max-width: 38rem;
+    margin: 2rem;
+    height:calc(100vh - 9rem);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+#cont_left{
+    width: fit-content;
+}
+
+#ammeter{
+    position: relative;
+    left: 56%;
+    top:18%;
+    width:9.375rem;
+    height:9.375em;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('https://media.discordapp.net/attachments/746426484876509255/1249323441497313411/ammeter.png?ex=6666e29f&is=6665911f&hm=6cca260cee5f446a81474f6d91e5673aab6103528b5bab5b9d5f712e43f27d83&=&format=webp&quality=lossless&width=287&height=290');
+}
+
+#voltmeter{
+    position: relative;
+    left: 44%;
+    top: 28%;
+    width:9.375rem;
+    height:9.375rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('https://media.discordapp.net/attachments/746426484876509255/1249323441790779454/voltmeter.png?ex=6666e29f&is=6665911f&hm=66b71e44d9afd244f2f8b626c4a58202554c8486aebdbb2e66eeaed01b2f735e&=&format=webp&quality=lossless&width=285&height=276');
+}
+
+.line{
+    width: 45px;
+    height: 2px;
+    background-color: black;
+    position: relative;
+    left:30px;
+    top:80px;
+    border-radius: 1px  ;
+    transform-origin: center right;
+    transition: all 1.2s ease-in-out;
+}
+
+#cur_value{
+    transform: rotate(32deg) ;
+}
+
+#vol_value{
+    transform: rotate(32deg);
+}
+
+#circut{
+    width:38rem;
+    height:38rem;
+    background-repeat: no-repeat;
+    margin: 2rem;
+    background-size: contain;
+    background-image: url('battery3.png');
+    margin-top: -2rem;
+    z-index: 1;
+    
+}
+
+#circut2{
+  width:38rem;
+  height:38rem;
+  background-repeat: no-repeat;
+  margin: 2rem;
+  background-size: contain;
+  background-image: url('battery4.png');
+  margin-top: -2rem;
+  z-index: 1;
+  
+}
+
+#circut3{
+  width:38rem;
+  height:38rem;
+  background-repeat: no-repeat;
+  margin: 2rem;
+  background-size: contain;
+  background-image: url('battery5.png');
+  margin-top: -2rem;
+  z-index: 1;
+  
+}
+
+  .range-input {
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#eee;
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    border-radius:10px;
+    font-family: "Mukta", sans-serif;
+    font-weight: 400;
+    width: fit-content;
+  }
+  .range-input input {
+    -webkit-appearance:none;
+    width:200px;
+    height:2px;
+    background:#4471ef;
+    border:none;
+    outline:none;
+  }
+  .range-input input::-webkit-slider-thumb {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    background:#eee;
+    border:2px solid #4471ef;
+    border-radius:50%;
+  }
+  .range-input input::-webkit-slider-thumb:hover {
+    background:#4471ef;
+  }
+  .range-input .value {
+    color:#4471ef;
+    text-align:center;
+    font-weight:600;
+    line-height:40px;
+    height:40px;
+    overflow:hidden;
+    margin-left:10px;
+  }
+  .range-input .value div {
+    transition:all 300ms ease-in-out;
+    
+  }
+
+  .swal2-popup {    
+    font-family: "Mukta", sans-serif;
+    font-weight: 400;
+  }
+
+
+ #vol_pop{
+    font-family: "Mukta", sans-serif;
+    font-weight: 400;
+    font-size: .75rem;
+    display: block;
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0);
+    top: -2rem;
+    color:white;
+    padding: .3rem;
+    left: 6.5rem;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+ }
+
+ .range-input:hover #vol_pop{
+    background-color: rgba(0, 0, 0, 0.568);
+ }
+
+ #xValue{
+
+  background:#eee;
+  padding:5px 5px;
+  align-items:center;
+  border-radius:10px;
+  font-family: "Mukta", sans-serif;
+  color:#4471ef;
+  text-align:center;
+  font-weight:600;
+  margin: 10px;
+  font-size: .8rem;
+  width:12rem;
+
+ }
+
+ #yValue{
+
+  
+    background:#eee;
+    padding:5px 5px;
+    align-items:center;
+    border-radius:10px;
+    font-family: "Mukta", sans-serif;
+    color:#4471ef;
+    text-align:center;
+    font-weight:600;
+    font-size: .8rem;
+    margin: 10px;
+    width:12rem;
+   
+   }
+ #navigateArrow {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+}
+ button{
+    border: none;
+    background:#eee;
+    padding:5px 5px;
+    align-items:center;
+    border-radius:10px;
+    font-family: "Mukta", sans-serif;
+    color:#4471ef;
+    text-align:center;
+    font-weight:600;
+    font-size: .8rem;
+    transition: all .5s ease-in-out;
+    margin: 10px;
+    width:13rem;
+ }
+
+ button:hover{
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+ }
+
+ .inputs{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+ }

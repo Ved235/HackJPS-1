@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HackJPS 2024</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="heading">Ohm's Law, V = IR</div>
+    <div class="heading1">Parallel Circuit</div>
+    <div class="cont">
+      <div id="cont_left">
+        <div id="circut3">
+          <div id="ammeter"><div class="line" id="cur_value"></div></div>
+          <div id="voltmeter"><div class="line" id="vol_value"></div></div>
+
+          <div class="range-input">
+            <div id="vol_pop" onclick="remove()">Change the voltage</div>
+            <input type="range" min="0" max="30" value="0" step="10" />
+            <div class="value">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cont_right">
+        <canvas id="myChart"></canvas>
+        <div class="inputs">
+          <div>
+            <input
+              id="xValue"
+              type="number"
+              step="any"
+              placeholder="Enter X-Value"
+            />
+            <input
+              id="yValue"
+              type="number"
+              step="any"
+              placeholder="Enter Y-Value"
+            />
+          </div>
+          <div>
+            <button id="renderButton">Add DataPoint & Render</button>
+
+            <button id="removePointButton">Remove Point</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img
+      src="https://media.discordapp.net/attachments/746426484876509255/1249413315306848306/Animation_-_1717953401086.gif?ex=66673653&is=6665e4d3&hm=7f3511098fbb5c29039e6b6f771b206b4c33e8c54ace1510a0161d5f5118f4ef&="
+      id="navigateArrow"
+      alt="Next Page"
+    />
+  </body>
+  <script>
+    document
+      .getElementById("navigateArrow")
+      .addEventListener("click", function () {
+        Swal.fire({
+          title: "Enter total resistance value",
+          input: "text",
+          inputAttributes: {
+            autocapitalize: "off",
+          },
+          showCancelButton: true,
+          confirmButtonText: "Submit",
+          showLoaderOnConfirm: true,
+          preConfirm: (inputValue) => {
+            if (inputValue > 13 && inputValue < 17) {
+              return true;
+            } else {
+              // If condition is not met, you can throw an error or inform the user
+              Swal.showValidationMessage(
+                `Resistance Value is incorrect. Please try again.`
+              );
+              return false;
+            }
+          },
+          allowOutsideClick: () => !Swal.isLoading(),
+        }).then((result) => {
+          if (result.value) {
+            Swal.fire({
+              title: "You got it right!",
+              text: "Total Resistance Value is approximately 15 Ohms. The total resistance for components connected in parallel follows the formula :- 1/R1 + 1/R2 +... = 1/R(equivalent). In this case 1/30 + 1/30 = 1/R, solving the equation we get R = 15 ohms.",
+              icon: "success",
+              confirmButtonText: "Go to Home",
+            }).then(() => {
+              window.location.href = "index.html";
+            });
+          }
+        });
+      });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script type="module" src="level3.js"></script>
+</html>
