@@ -75,7 +75,7 @@ document.getElementById('removePointButton').addEventListener('click', () => {
 });
 
 Swal.fire({
-    title: "Hello Traveler!",
+    title: "Hello Learner!",
     text: "Welcome to our interactive Ohm's Law experiment! Dive in to explore the fundamental relationship between voltage, current, and resistance with hands-on simulations and detailed explanations.",
     
 });
